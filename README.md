@@ -1,6 +1,6 @@
 ## modcop
 
-![Go Report Card](https://goreportcard.com/badge/github.com/go-tooling/modcop)](https://goreportcard.com/report/github.com/go-tooling)
+[![Go Report Card](https://goreportcard.com/badge/github.com/go-tooling/modcop)](https://goreportcard.com/report/github.com/go-tooling)
 
 Modcop is a CLI tool that inspects go.mod files for deprecated versions according to a set of deprecation rules.
 
@@ -31,5 +31,5 @@ Example CLI usage:
 modcop --rulepath=http://my.domain.com/myrules.modcop --modpath=./go.mod
 ```
 
-Note that both path args may be local or http(s) urls.
+Note that both path args may be local or http(s) urls.  If any deprecated references are identified modcop exits with code 1.  
 
