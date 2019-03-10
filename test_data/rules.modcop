@@ -1,4 +1,4 @@
-github.com/myles-mcdonnell/blondie v1.0.0>=v3.0.0 #whitelist range equal or more than v1 less than v3
-github.com/myles-mcdonnell/blondie =v0.8.0,v0.9.3 #whitelist v0.8.0 and v0.9.3
-github.com/myles-mcdonnell/blondie !v1.5.7>=v1.8.3 #blacklist range equal or more than v1.5.7 less than 1.8.3
-github.com/myles-mcdonnell/blondie !=v2.5.0 #blacklist
+github.com/myles-mcdonnell/blondie v1.0.0>=v3.0.0         #whitelist range equal or more than v1 less than v3
+github.com/myles-mcdonnell/blondie =v0.8.0,v0.9.3         #whitelist v0.8.0 and v0.9.3
+github.com/myles-mcdonnell/blondie !v1.5.7>=v1.8.3        #blacklist range equal or more than v1.5.7 less than 1.8.3
+github.com/myles-mcdonnell/blondie !=v2.5.0               #blacklist
