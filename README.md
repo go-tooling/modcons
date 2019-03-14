@@ -28,8 +28,11 @@ go get -u github.com/go-tooling/modcop/...
 Example CLI usage:
 
 ```
-modcop --rulepath=http://my.domain.com/myrules.modcop --modpath=./go.mod
+modcop --rulepath=http://my.domain.com/myrules.modcop --modpath=./go.mod --parseOnly=false
 ```
 
-Note that both path args may be local or http(s) urls.  If any deprecated references are identified modcop exits with code 1.  
+- Note that both path args may be local or http(s) urls.  
+- `parseOnly` will only parse the rule file and will not inspect the go.mod file
+- Both `modpath` and `parseOnly` flag are optional, the default values are shown above
+- If any deprecated references are identified modcop exits with code 1.  
 

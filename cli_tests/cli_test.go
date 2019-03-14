@@ -31,17 +31,50 @@ func TestMain(m *testing.M) {
 func Test_Local_Paths_Ok(t *testing.T) {
 	cmd := exec.Command("../artefacts/modcop", "--rulepath=../test_data/rules.modcop", "--modpath=../go.mod")
 	cmd.Stdout = os.Stdout
+	cmd.Run()
 
-	if err := cmd.Run(); err != nil {
-		t.Fatal(err)
+	if cmd.ProcessState.ExitCode() != 0 {
+		t.Fatal()
+	}
+}
+
+func Test_Local_ParseOnly_Ok(t *testing.T) {
+	cmd := exec.Command("../artefacts/modcop", "--rulepath=../test_data/rules.modcop", "--modpath=../go.mod", "--parseOnly=true")
+	cmd.Stdout = os.Stdout
+
+	cmd.Run()
+
+	if cmd.ProcessState.ExitCode() != 0 {
+		t.Fatal()
+	}
+}
+
+func Test_Local_ParseOnly_NotOk(t *testing.T) {
+	cmd := exec.Command("../artefacts/modcop", "--rulepath=../test_data/rules_bad.modcop", "--modpath=../go.mod", "--parseOnly=true")
+	cmd.Stdout = os.Stdout
+	cmd.Run()
+
+	if cmd.ProcessState.ExitCode() != 1 {
+		t.Fatal()
+	}
+}
+
+func Test_Local_Paths_NotOk(t *testing.T) {
+	cmd := exec.Command("../artefacts/modcop", "--rulepath=../test_data/rules2.modcop", "--modpath=../go.mod")
+	cmd.Stdout = os.Stdout
+	cmd.Run()
+
+	if cmd.ProcessState.ExitCode() != 1 {
+		t.Fatal()
 	}
 }
 
 func Test_Http_Rules_Ok(t *testing.T) {
 	cmd := exec.Command("../artefacts/modcop", "--rulepath=http://localhost:8080", "--modpath=../go.mod")
 	cmd.Stdout = os.Stdout
+	cmd.Run()
 
-	if err := cmd.Run(); err != nil {
-		t.Fatal(err)
+	if cmd.ProcessState.ExitCode() != 0 {
+		t.Fatal()
 	}
 }
