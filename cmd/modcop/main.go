@@ -13,6 +13,8 @@ import (
 func main() {
 	rulesPath := flag.String("rulepath", "", "Path to rules file, may be local or http/s")
 	modPath := flag.String("modpath", "./go.mod", "Path to rules file, may be local or http/s, defaults to ./go.mod")
+	parseOnly := flag.Bool("parseOnly", false, "Only parse the rule file")
+
 	flag.Parse()
 
 	if len(*rulesPath) < 1 {
@@ -46,20 +48,22 @@ func main() {
 		os.Exit(1)
 	}
 
-	includesDeprecated := false
+	if !*parseOnly {
+		includesDeprecated := false
 
-	for _, mod := range mods {
+		for _, mod := range mods {
 
-		if rules.IsDeprecated(mod) {
-			includesDeprecated = true
-			fmt.Printf("Deprecated mod: %v %v", mod.Path, mod.Version.String())
-		} else {
-			fmt.Printf("%v %v OK", mod.Path, mod.Version.String())
+			if rules.IsDeprecated(mod) {
+				includesDeprecated = true
+				fmt.Printf("Deprecated mod: %v %v", mod.Path, mod.Version.String())
+			} else {
+				fmt.Printf("%v %v OK", mod.Path, mod.Version.String())
+			}
 		}
-	}
 
-	if includesDeprecated {
-		os.Exit(1)
+		if includesDeprecated {
+			os.Exit(1)
+		}
 	}
 }
 
