@@ -13,6 +13,11 @@ github.com/myles-mcdonnell/blondie !=v2.5.0               #blacklist
 
 ```
 
+### Where is modcop?
+
+This project was initially named _modcop_ until it was brought to my attention than a similar tool had already taken this name, which you can find here https://github.com/rogpeppe/modcop
+
+
 ### Install
 The latest binaries for all supported operating systems are [here](https://github.com/go-tooling/modcons/releases)
 
