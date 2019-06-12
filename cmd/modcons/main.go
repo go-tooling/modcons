@@ -3,7 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
-	. "github.com/go-tooling/modcop"
+	. "github.com/go-tooling/modcons"
 	"io"
 	"net/http"
 	"os"

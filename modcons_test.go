@@ -155,7 +155,7 @@ func Test_Range_In(t *testing.T) {
 }
 
 func Test_Parse_Rules(t *testing.T) {
-	file, err := os.Open("./test_data/rules.modcop")
+	file, err := os.Open("./test_data/rules.modcons")
 	assert.Nil(t, err)
 
 	r, err := ParseRules(file)
