@@ -1,4 +1,4 @@
-module github.com/go-tooling/modcop
+module github.com/go-tooling/modcons
 
 go 1.12
 

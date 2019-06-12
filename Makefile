@@ -8,19 +8,19 @@ unit_test:
 build_all: build_linux build_darwin build_windows build_freebsd
 
 build_linux:
-	GOOS=linux GOARCH=amd64 go build -o ./artefacts/modcop_linux_amd64 cmd/modcop/main.go
+	GOOS=linux GOARCH=amd64 go build -o ./artefacts/modcons_linux_amd64 cmd/modcons/main.go
 
 build_darwin:
-	GOOS=darwin GOARCH=amd64 go build -o ./artefacts/modcop_darwin_amd64 cmd/modcop/main.go
+	GOOS=darwin GOARCH=amd64 go build -o ./artefacts/modcons_darwin_amd64 cmd/modcons/main.go
 
 build_windows:
-	GOOS=windows GOARCH=amd64 go build -o ./artefacts/modcop_windows_amd64 cmd/modcop/main.go
+	GOOS=windows GOARCH=amd64 go build -o ./artefacts/modcons_windows_amd64 cmd/modcons/main.go
 
 build_freebsd:
-	GOOS=freebsd GOARCH=amd64 go build -o ./artefacts/modcop_freebsd_amd64 cmd/modcop/main.go
+	GOOS=freebsd GOARCH=amd64 go build -o ./artefacts/modcons_freebsd_amd64 cmd/modcons/main.go
 
 build:
-	go build -o ./artefacts/modcop cmd/modcop/main.go
+	go build -o ./artefacts/modcons cmd/modcons/main.go
 
 tests:
 	go test ./...
